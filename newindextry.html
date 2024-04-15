@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>makar</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <!--import altair libraries-->
+      <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+      <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+      </div>
+      <!-- end loader -->
+      <div id="mySidepanel" class="sidepanel">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+         <a href="index.html">Home</a>
+         <a href="#Overview">Overview</a>
+         <a href="#Position_Analysis">Position Analysis</a>
+         <a href="#Top_Players">Top Players</a>
+         <a href="#Our_Team">Our Team</a>
+         <a href="#contact">Contact Us</a>
+      </div>
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                     <div class="sea_icon d_none ">
+                        <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col logo_section">
+                     <div class="full">
+                        <div class="center-desk">
+                           <div class="logo">
+                              <a href="index.html"><img src="images/fifa23logo.png" alt="#" /></a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                     <div class="right_bottun">
+                        <button class="openbtn" onclick="openNav()"><img src="images/menu_icon.png" alt="#"/> </button> 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- end header inner -->
+      <!-- end header -->
+      <!-- banner -->
+      <section class="banner_main">
+         <div id="banner1" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+               <li data-target="#banner1" data-slide-to="0" class="active"></li>
+            </ol>
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="container">
+                     <div class="carousel-caption">
+                        <div class="text-bg">
+                           <h1>Football Players</h1>
+                           <span>Value Analysis</span>
+                           <a class="read_more" href="#">Explore More</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- end banner -->
+      <!-- about section -->
+      <div id="about" class="about">
+         <div class="container">
+            <div class="row ">
+               <div class="col-md-5">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="titlepage">
+                           <h2>Overview</h2>
+                           <p> As the No.1 sport in the world, football has created wonderful performances for millions of audiences every week. Football stars, superstars, playing as the most important roles in these great shows, really stand out in this sport. How can these players create the most value s in this sport? We would like to visualize the data in FIFA23 to discover the trends in modern football sport. In many cases, we have to respect the gifts that some people get but we are always inspired by some exceptions in the football world as well. </p>
+                        </div>
+                     </div>
+                     <div id="vis"></div>
+                     <script type="text/javascript">
+                        // Fetch the JSON file and then use Vega-Embed to render the chart
+                        fetch('https://raw.githubusercontent.com/larrysangfake/fifa23/main/Overview.json')
+                            .then(response => response.json())
+                            .then(spec => {
+                                vegaEmbed('#vis', spec, {actions: true});
+                            })
+                            .catch(error => console.error('Error loading the chart:', error));
+                     </script>
+                     </div>
+                     <div class="col-md-12">
+                        <div class="titlepage">
+                           <p> As we may see from the chart 2, we would know that there exists huge imbalance between nations as well. As we have mentioned earlier, the British players may have a combined total value over 100 000 million euros, which could rank top 5 in the world. However, the total value of Chinese players may just be over 5 million euros. Given the volatility of this football world, we should not give too much focus on the exact values but the size relationship. You can explore your nation by hovering in your nation on the map.
+
+                            In modern football, 阵型的发展，极大地促进了足球这项运动的发展。从早期的WM阵型到442，352等阵型的出现都革命性地推动了现代足球发展，创造了一系列明星球员，如马拉多纳，贝肯龅尔，克鲁伊夫等等，这些球员都大多数创造了球员在不同位置上的模板。随着足球领域运动员的身体，技术素质的提高，球员的位置都有了更加具体的划分。In FIFA23, there are 23 positions. Quite a lot! Comparing players regardless of positions is really unfair. For instance, a huge amount of people think of Messi as the greatest footballer in history, but in fact, he is not a good defender in the court compared to Van dijk or Casemiro. For better understanding from most people, we would like to categorize the players into 4: forwards, midfielders, defenders and goalkeepers. In fact, the preferred foot is also a interesting factor to see in the databse. Although right-foot preferred player accounts for the majority of the players, left footballers often creates niches in the court, where can still surprise opponents in most cases, which are in need in the football world. For example, Messi is a left footballer. In general, right footballers still enjoy the higher values in the market but the difference is not that huge. 
+                            As most audience appreciate goals, forwards usually have higher values than others, though not many coaches disregard the strategical roles of other positions on.the court. But huge range indicates huge imbalance. Not many forwards have efficiency like Cristiano Ronaldo or Messi, which creates huge differences among forwards as well. Sometimes, attacking midfielders can have higher values than forwards. However, as a pure sports fan, I suggest that people can value more efforts from defenders, goalkeepers as well. The numbers of goals in a match are often smaller than 10 because many defensive players never give up to help their team win in every second in the 90 minutes, which are often not showed in highlights after the match. Every trophy winning team has incredible defensive players.            
+                            </p>
+                        </div>
+                     </div>
+                     <div id="vis"></div>
+                     <script type="text/javascript">
+                        // Fetch the JSON file and then use Vega-Embed to render the chart
+                        fetch('https://raw.githubusercontent.com/larrysangfake/fifa23/main/Leftright.json')
+                            .then(response => response.json())
+                            .then(spec => {
+                                vegaEmbed('#vis', spec, {actions: true});
+                            })
+                            .catch(error => console.error('Error loading the chart:', error));
+                     </script>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-7">
+                    <div class="about_text">
+                        <p>As we can see from the chart 1, we can observe that the football world is a huge imbalanced world in terms of value distribution. Most players recorded in FIFA23 database don’t get salaries too much different from others. However, top players with 10/20 points overall score higher, can often get 10 or 20 times wages than the others. If you are super familiar with the football world, you would not be surprised by seeing those big bubbles about Mubbape, Haarland, L.Messi, Cristiano Ronaldo, etc. Often times, it really depends on the nationality and the club as well. Currently, players in the clubs in Premier League in England often enjoy higher pay and higher value, because the audience, the football market there earns much more profits than most of other top leagues in other nations. You can filter nationality and the club as you want in the chart. However, due to the limitations about the database, we cannot show the league in which these players’ clubs belong to.</p>
+                </div>
+            </div>
+            </div> <!-- Close the row -->
+            </div> <!-- Close the container -->
+         </div>
+      </div>
+      <!-- about section -->
+      <!-- software section -->
+      <div class="software">
+         <div class="container-fluid">
+            <div class="row d_flex">
+               <div class="col-md-6">
+                  <div class="titlepage">
+                     <h2>Software Maker</h2>
+                     <p>As we can see from the chart 1, we can observe that the football world is a huge imbalanced world in terms of value distribution. Most players recorded in FIFA23 database don’t get salaries too much different from others. However, top players with 10/20 points overall score higher, can often get 10 or 20 times wages than the others. If you are super familiar with the football world, you would not be surprised by seeing those big bubbles about Mubbape, Haarland, L.Messi, Cristiano Ronaldo, etc. Often times, it really depends on the nationality and the club as well. Currently, players in the clubs in Premier League in England often enjoy higher pay and higher value, because the audience, the football market there earns much more profits than most of other top leagues in other nations. You can filter nationality and the club as you want in the chart. However, due to the limitations about the database, we cannot show the league in which these players’ clubs belong to. </p>
+                     <a class="read_more" href="#">Click here</a>
+                  </div>
+               </div>
+               <div id="vis"></div>
+                     <script type="text/javascript">
+                        // Fetch the JSON file and then use Vega-Embed to render the chart
+                        fetch('https://raw.githubusercontent.com/larrysangfake/fifa23/main/overview.json')
+                            .then(response => response.json())
+                            .then(spec => {
+                                vegaEmbed('#vis', spec, {actions: true});
+                            })
+                            .catch(error => console.error('Error loading the chart:', error));
+                     </script>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- software section -->
+      <!-- Position Analysis section -->
+      <div id="Position_Analysis" class="we_do">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Position Analysis</h2>
+                     <p>As we mentioned earlier, positions are more and more detailed in this sport, which has created certain patterns. 
+                            
+                        First, size. As Olympic motto mentioned,  "higher, faster, stronger". The body size of athletes are a key factor to measure the potential of a player. It is regretful to state that a 150 cm player cannot become a great football star in this sport with almost 100 percentage. He must make amazing efforts to be a professional player. Thus, for specific positions, players are more and more chosen on purpose for their size including their heights and weights. From the graph, we can see that most forwards appear to be around to cm tall, but the best appear to be around to cm. because many more high players have got scientific methods to level up their flexibility to win the battle with the similarly-sized defenders. And headers are great weapons for these tall players. For midfielders, the size requirement is far less strict than other positions, as they do not need too high speeds, flexibility is more valued because they can face challenges from every direction. Defenders' sizes are often similar to forwards, as we can see, many defenders are often high and strong, to help them fight against the forwards. And the goalkeeper. Most valuable goalkeepers are almost all high. If you review the games in the most recent World.Cup, you would have found out that most free kicks are not successful. Thanks to the science, more and more high male goalkeepers have gained the capabilities to cover almost half size of the goal, which is enough for free kick. The increase of the capabilities of high goalkeepers are further squeezing the possibility of short goalkeepers. Except the goalkeepers, there a </p>
+                  </div>
+               </div>
+               <div id="vis"></div>
+                     <script type="text/javascript">
+                        // Fetch the JSON file and then use Vega-Embed to render the chart
+                        fetch('https://raw.githubusercontent.com/larrysangfake/fifa23/main/overview.json')
+                            .then(response => response.json())
+                            .then(spec => {
+                                vegaEmbed('#vis', spec, {actions: true});
+                            })
+                            .catch(error => console.error('Error loading the chart:', error));
+                     </script>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <div id="hover_color" class="we_box">
+                     <span>1</span>
+                     <h3>Software Maker</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut </p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div id="hover_color" class="we_box">
+                     <span>1</span>
+                     <h3>Expense Management Maker</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut </p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div id="hover_color" class="we_box">
+                     <span>1</span>
+                     <h3>Group Revenue <br> Maker</h3>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut </p>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <a class="read_more" href="#">Read More</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end We Do section -->
+      <!-- Our  team section -->
+      <div id="team" class="team">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Our Team</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="team_box">
+                     <figure><img src="images/team_img1.jpg" alt="#"/></figure>
+                     <div class="social_box">
+                        <ul class="social_team">
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <h3>Jose Haward</h3>
+                        <p>Software</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="team_box">
+                     <figure><img src="images/team_img2.jpg" alt="#"/></figure>
+                     <div class="social_box">
+                        <ul class="social_team">
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <h3>Sandy Miller</h3>
+                        <p>Software</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="team_box">
+                     <figure><img src="images/team_img3.jpg" alt="#"/></figure>
+                     <div class="social_box">
+                        <ul class="social_team">
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <h3>Mark Den</h3>
+                        <p>Software</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end Our  team section -->
+      <!-- contact section -->
+      <div id="contact" class="contact">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Request  A  Call  Back</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="con_bg">
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-md-6">
+                     <form id="request" class="main_form">
+                        <div class="row">
+                           <div class="col-md-12 ">
+                              <input class="contactus" placeholder="Name" type="type" name="Name"> 
+                           </div>
+                           <div class="col-md-12">
+                              <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                           </div>
+                           <div class="col-md-12">
+                              <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">                          
+                           </div>
+                           <div class="col-md-12">
+                              <input class="contactusmess" placeholder="Message" type="type" Message="Name">
+                           </div>
+                           <div class="col-md-12">
+                              <button class="send_btn">Send</button>
+                           </div>
+                           <div class="col-md-12">
+                              <ul class="location_form">
+                                 <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                    (+71) 1234567890 (+71) 1234567890
+                                 </li>
+                                 <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
+                              </ul>
+                           </div>
+                           <div class="col-md-12">
+                              <ul class="social_icon">
+                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="col-md-6 padding_right2">
+                     <div class="map_section">
+                        <div id="map">
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end contact section -->
+      <!-- testimonial section -->
+      <div id="testimonial" class="testimonial">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Testimonials</h2>
+                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </p>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-md-12">
+                  <div id="myCarousel" class="carousel slide testimonial_Carousel " data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                     </ol>
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="container">
+                              <div class="carousel-caption ">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="testimonial_box">
+                                          <figure><img src="images/our.png" alt="#"/></figure>
+                                          <h3>Due markes <br><span class="blu">Rental</span></h3>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                                          <i><img src="images/test.png" alt="#"/></i>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="testimonial_box">
+                                          <figure><img src="images/our.png" alt="#"/></figure>
+                                          <h3>Due markes <br><span class="blu">Rental</span></h3>
+                                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                                          <i><img src="images/test.png" alt="#"/></i>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="container">
+                              <div class="carousel-caption">
+                                 <div class="row">
+                                    <div class="col-md-12">
+                                       <div class="full cross_layout">
+                                          <div class="testimonial_box">
+                                             <figure><img src="images/our.png" alt="#"/></figure>
+                                             <h3>Due markes <br><span class="blu">Rental</span></h3>
+                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess</p>
+                                             <i><img src="images/test.png" alt="#"/></i>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                     <i class='fa fa-angle-left'></i>
+                     </a>
+                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                     <i class='fa fa-angle-right'></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end testimonial section -->
+      <!--  footer -->
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-4">
+                     <h3>Useful links</h3>
+                     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="fid_box">
+                        <h3>Find us  </h3>
+                        <ul class="location_icon">
+                           <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a><br> It is a long established fact that a <br>reader will be distracted</li>
+                           <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a><br>
+                              (+71) 1234567890<br> (+71) 1234567890
+                           </li>
+                           <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><br> demo@gmail.com</li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="fid_box">
+                        <h3>News letter</h3>
+                        <form class="news_form">
+                           <input class="letter_form" placeholder=" Email" type="text" name="Email">
+                           <button class="sumbit">Subscribe</button>
+                        </form>
+                        <ul class="social_icon">
+                           <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                           <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script>
+         function openNav() {
+           document.getElementById("mySidepanel").style.width = "250px";
+         }
+         
+         function closeNav() {
+           document.getElementById("mySidepanel").style.width = "0";
+         }
+      </script>
+      <script>
+         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+         // Australia.
+         function initMap() {
+           var map = new google.maps.Map(document.getElementById('map'), {
+             zoom: 11,
+             center: {lat: 40.645037, lng: -73.880224},
+             });
+         
+         var image = 'images/maps-and-flags.png';
+         var beachMarker = new google.maps.Marker({
+             position: {lat: 40.645037, lng: -73.880224},
+             map: map,
+             icon: image
+           });
+         }
+      </script>
+      <!-- google map js -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
+      <!-- end google map js --> 
+   </body>
+</html>
+
